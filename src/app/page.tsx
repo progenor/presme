@@ -13,7 +13,7 @@ export default function Home() {
           mollitia expedita soluta.
         </p>
         <div className="flex gap-5 justify-center items-center">
-          <Link href="/room" className="p-3 px-5 bg-blue-800 rounded-md">
+          <Link href="/test" className="p-3 px-5 bg-blue-800 rounded-md">
             Join
           </Link>
           <Link href="/room" className="p-3 px-5 bg-blue-800 rounded-md">
