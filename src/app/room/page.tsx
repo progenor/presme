@@ -6,14 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 type Props = {};
 
@@ -21,8 +14,11 @@ const Page = (props: Props) => {
   const [showChat, setShowChat] = useState(false);
   const [showSlides, setShowSlides] = useState(false);
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const pdf = "/pdfs/pdf1.pdf";
+
   return (
-    <main className="flex justify-center items-center min-h-screen h-screen p-2 lg:p-4 bg-background">
+    <main className="flex justify-center items-center min-h-screen h-screen p-2 lg:p-4 bg-background overflow-hidden">
       <div className="w-full h-full border-white border-2 rounded-lg">
         <div className="flex justify-between p-2">
           <Sheet>
@@ -31,7 +27,11 @@ const Page = (props: Props) => {
             </SheetTrigger>
 
             <SheetContent side={"left"} className="lg:hidden">
-              <SlideShow />
+              <SlideShow
+                pdf={pdf}
+                currentSlide={currentSlide}
+                setCurrentSlide={setCurrentSlide}
+              />
             </SheetContent>
             <Button
               className="hidden lg:block"
@@ -55,11 +55,19 @@ const Page = (props: Props) => {
             </Button>
           </Sheet>
         </div>
-        <section className=" gap-2 lg:gap-3 w-full h-[92%] p-2 flex">
+        <section className=" gap-2 lg:gap-3 w-full h-[92%] p-2 lg:p-3 flex">
           <SlideShow
+            pdf={pdf}
+            currentSlide={currentSlide}
+            setCurrentSlide={setCurrentSlide}
             className={`hidden ${!showSlides && "lg:block"} lg:w-1/3`}
           />
-          <SlideView alt="asd" img="/images/img2.jpg" number={2} />
+          <SlideView
+            alt="asd"
+            pdf={pdf}
+            currentSlide={currentSlide}
+            setCurrentSlide={setCurrentSlide}
+          />
           <ChatArea
             className={`hidden lg:w-1/3 lg:border-2 rounded-lg border-white ${
               !showChat && "lg:block"
