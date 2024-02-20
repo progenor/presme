@@ -18,25 +18,53 @@ import {
 type Props = {};
 
 const Page = (props: Props) => {
-  const [openSlideShow, setOpenSlideSow] = useState(false);
-  const [openChatArea, setChatArea] = useState(false);
+  const [showChat, setShowChat] = useState(false);
+  const [showSlides, setShowSlides] = useState(false);
 
   return (
     <main className="flex justify-center items-center min-h-screen h-screen p-2 lg:p-4 bg-background">
       <div className="w-full h-full border-white border-2 rounded-lg">
         <div className="flex justify-between p-2">
-          <Button onClick={() => setOpenSlideSow(!openSlideShow)}>
-            Slides
-          </Button>
-          <Button onClick={() => setChatArea(!openChatArea)}>Chat</Button>
+          <Sheet>
+            <SheetTrigger key={"left"} className="lg:hidden">
+              <Button>Slides</Button>
+            </SheetTrigger>
+
+            <SheetContent side={"left"} className="lg:hidden">
+              <SlideShow />
+            </SheetContent>
+            <Button
+              className="hidden lg:block"
+              onClick={() => setShowSlides(!showSlides)}
+            >
+              Slides
+            </Button>
+          </Sheet>
+          <Sheet>
+            <SheetTrigger key={"right"}>
+              <Button className="lg:hidden">Chat</Button>
+            </SheetTrigger>
+            <SheetContent side={"right"}>
+              <ChatArea />
+            </SheetContent>
+            <Button
+              className="hidden lg:block"
+              onClick={() => setShowChat(!showChat)}
+            >
+              Chat
+            </Button>
+          </Sheet>
         </div>
         <section className=" gap-2 lg:gap-3 w-full h-[92%] p-2 flex">
           <SlideShow
-            openSlideShow={openSlideShow}
-            setOpenSlideSow={setOpenSlideSow}
+            className={`hidden ${!showSlides && "lg:block"} lg:w-1/3`}
           />
           <SlideView alt="asd" img="/images/img2.jpg" number={2} />
-          <ChatArea className={`${!openChatArea && "hidden"}`} />
+          <ChatArea
+            className={`hidden lg:w-1/3 lg:border-2 rounded-lg border-white ${
+              !showChat && "lg:block"
+            } `}
+          />
         </section>
       </div>
     </main>

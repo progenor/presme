@@ -8,7 +8,7 @@ export type SlideCardProps = {
 
 const SlideCard = ({ img, alt, number }: SlideCardProps) => {
   return (
-    <div className="border-white border-2 rounded-lg h-24 lg:h-80 relative mb-2">
+    <div className="border-white border-2 rounded-lg h-44 lg:h-80 relative mb-4">
       <Image
         alt={alt}
         fill

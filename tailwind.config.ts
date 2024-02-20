@@ -23,13 +23,13 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "black",
-        foreground: "hsl(var(--foreground))",
+        foreground: "white",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "blue",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "white",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {

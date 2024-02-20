@@ -5,13 +5,7 @@ type Props = {
 };
 
 const ChatArea = ({ className }: Props) => {
-  return (
-    <div
-      className={cn("w-1/3 h-full border-2 border-white rounded-lg", className)}
-    >
-      asd
-    </div>
-  );
+  return <div className={cn("w-full h-full", className)}></div>;
 };
 
 export default ChatArea;

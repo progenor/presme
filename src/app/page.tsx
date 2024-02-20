@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <main className="flex justify-center items-center h-screen p-24 bg-background">
       <div className="flex-col flex gap-16">
-        <h1 className="text-3xl text-white font-bold">
+        <h1 className="text-3xl text-primary font-bold">
           Welcome! join or create a Room!
         </h1>
-        <p>
+        <p className="text-primary">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum
           mollitia expedita soluta.
         </p>

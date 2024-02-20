@@ -1,15 +1,15 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import SlideCard from "@/components/SlideCard";
-import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 type Props = {
-  openSlideShow: boolean;
-  setOpenSlideSow: (value: boolean) => void;
+  className?: string;
 };
 
-const SlideShow = ({ openSlideShow, setOpenSlideSow }: Props) => {
+const SlideShow = ({ className }: Props) => {
   return (
-    <ScrollArea className={`h-full w-1/3 pr-3 ${!openSlideShow && "hidden"}`}>
+    <ScrollArea className={cn(`h-full w-full pr-5`, className)}>
+      <h1 className=" mb-2">Slides:</h1>
       <SlideCard img="/images/img1.jpg" alt="amazing" number="4" />
       <SlideCard img="/images/img1.jpg" alt="amazing" number="4" />
       <SlideCard img="/images/img3.jpg" alt="amazing" number="6" />
