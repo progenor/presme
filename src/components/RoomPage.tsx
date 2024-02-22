@@ -23,7 +23,7 @@ const RoomPage = (props: Props) => {
         <div className="flex justify-between p-2">
           <Sheet>
             <SheetTrigger key={"left"} className="lg:hidden">
-              <Button>{useOthers().length}</Button>
+              <Button>Slides</Button>
             </SheetTrigger>
 
             <SheetContent side={"left"} className="lg:hidden">
@@ -40,20 +40,26 @@ const RoomPage = (props: Props) => {
               Slides
             </Button>
           </Sheet>
-          <Sheet>
-            <SheetTrigger key={"right"}>
-              <Button className="lg:hidden">Chat</Button>
-            </SheetTrigger>
-            <SheetContent side={"right"}>
-              <ChatArea />
-            </SheetContent>
-            <Button
-              className="hidden lg:block"
-              onClick={() => setShowChat(!showChat)}
-            >
-              Chat
-            </Button>
-          </Sheet>
+          <div className="">timer/clock</div>
+          <div className="flex items-center gap-4">
+            <div>
+              <h1>Users: {useOthers().length}</h1>
+            </div>
+            <Sheet>
+              <SheetTrigger key={"right"}>
+                <Button className="lg:hidden">Chat</Button>
+              </SheetTrigger>
+              <SheetContent side={"right"}>
+                <ChatArea />
+              </SheetContent>
+              <Button
+                className="hidden lg:block"
+                onClick={() => setShowChat(!showChat)}
+              >
+                Chat
+              </Button>
+            </Sheet>
+          </div>
         </div>
         <section className=" gap-2 lg:gap-3 w-full h-[92%] p-2 lg:p-3 flex">
           <SlideShow

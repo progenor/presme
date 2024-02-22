@@ -1,4 +1,4 @@
-import { createClient } from "@liveblocks/client";
+import { User, createClient } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
 
 const client = createClient({
@@ -29,8 +29,12 @@ type Storage = {
 // provided by your own custom auth back end (if used). Useful for data that
 // will not change during a session, like a user's name or avatar.
 type UserMeta = {
-  // id?: string,  // Accessible through `user.id`
-  // info?: Json,  // Accessible through `user.info`
+  id?: string; // Accessible through `user.id`
+  info?: {
+    name: string;
+    avatar: string;
+    isPresenter: boolean;
+  }; // Accessible through `user.info`
 };
 
 // Optionally, the type of custom events broadcast and listened to in this
@@ -88,19 +92,14 @@ export const {
 } = createRoomContext<Presence, Storage, UserMeta, RoomEvent, ThreadMetadata>(
   client,
   {
-    async resolveUsers({ userIds }) {
-      // Used only for Comments. Return a list of user information retrieved
-      // from `userIds`. This info is used in comments, mentions etc.
+    // async resolveUsers({ userIds }) {
+    //   // Get users from your back end
+    //   const users = await Promise<String[]>; // __fetchUsersFromDB__(userIds);
 
-      // const usersData = await __fetchUsersFromDB__(userIds);
-      //
-      // return usersData.map((userData) => ({
-      //   name: userData.name,
-      //   avatar: userData.avatar.src,
-      // }));
+    //   // Return a list of users
+    //   return users;
+    // },
 
-      return [];
-    },
     async resolveMentionSuggestions({ text, roomId }) {
       // Used only for Comments. Return a list of userIds that match `text`.
       // These userIds are used to create a mention list when typing in the
