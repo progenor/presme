@@ -3,14 +3,14 @@ import ChatArea from "@/components/ChatArea";
 import SlideShow from "@/components/SlideShow";
 import SlideView from "@/components/SlideView";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { useState } from "react";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useOthers } from "../../liveblocks.config";
 
 type Props = {};
 
-const Page = (props: Props) => {
+const RoomPage = (props: Props) => {
   const [showChat, setShowChat] = useState(false);
   const [showSlides, setShowSlides] = useState(false);
 
@@ -23,7 +23,7 @@ const Page = (props: Props) => {
         <div className="flex justify-between p-2">
           <Sheet>
             <SheetTrigger key={"left"} className="lg:hidden">
-              <Button>Slides</Button>
+              <Button>{useOthers().length}</Button>
             </SheetTrigger>
 
             <SheetContent side={"left"} className="lg:hidden">
@@ -79,4 +79,4 @@ const Page = (props: Props) => {
   );
 };
 
-export default Page;
+export default RoomPage;

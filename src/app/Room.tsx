@@ -12,7 +12,7 @@ export function Room({
   roomId: string;
 }) {
   return (
-    <RoomProvider id="my-room" initialPresence={{}}>
+    <RoomProvider id={roomId} initialPresence={{}}>
       <ClientSideSuspense fallback={<div>Loading…</div>}>
         {() => children}
       </ClientSideSuspense>

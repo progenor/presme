@@ -24,7 +24,7 @@ const SlideShow = ({
   const [numPages, setNumPages] = React.useState(0);
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
-    setNumPages(numPages - 1);
+    setNumPages(numPages);
   }
 
   function onItemClick(index: number) {
