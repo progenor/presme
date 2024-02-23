@@ -1,5 +1,4 @@
 import React from "react";
-import { Room } from "@/app/Room";
 import RoomPage from "@/components/RoomPage";
 
 type Props = {
@@ -9,9 +8,5 @@ type Props = {
 };
 
 export default function Page({ params }: Props) {
-  return (
-    <Room roomId={params.slug}>
-      <RoomPage />
-    </Room>
-  );
+  return <RoomPage />;
 }

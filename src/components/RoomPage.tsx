@@ -5,8 +5,12 @@ import SlideView from "@/components/SlideView";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useOthers } from "../../liveblocks.config";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 type Props = {};
 
@@ -25,7 +29,6 @@ const RoomPage = (props: Props) => {
             <SheetTrigger key={"left"} className="lg:hidden">
               <Button>Slides</Button>
             </SheetTrigger>
-
             <SheetContent side={"left"} className="lg:hidden">
               <SlideShow
                 pdf={pdf}
@@ -43,7 +46,7 @@ const RoomPage = (props: Props) => {
           <div className="">timer/clock</div>
           <div className="flex items-center gap-4">
             <div>
-              <h1>Users: {useOthers().length}</h1>
+              <h1>Users: {}</h1>
             </div>
             <Sheet>
               <SheetTrigger key={"right"}>
